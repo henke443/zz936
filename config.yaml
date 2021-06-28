@@ -1,0 +1,19 @@
+log_level : INFO
+
+log_format : format0
+
+handlers :
+    mytemplate:
+        - { 
+            sink: "sys.stdout",
+            format: "format1"
+        }
+        - { 
+            sink: "sys.stdout",
+            serialize: False,
+            format: "format0"
+        }
+        
+format_dict:
+        format0: "<green>{time:DD.MM.YY HH:mm:ss}</green> | <level>{level}</level> | <level>message</level>"
+        format1: "<red>{time:DD.MM.YY HH:mm:ss}</red> | <level>{level}</level> | <level>message</level>"
